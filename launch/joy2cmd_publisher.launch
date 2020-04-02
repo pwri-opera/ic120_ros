@@ -1,0 +1,12 @@
+<launch>
+  <group ns="ic120">
+    <node name="joy_node" pkg="joy" type="joy_node">
+      <param name="autorepeat_rate" type="double" value="15"/>
+    </node>
+
+    <node name="joy2cmd_publisher" pkg="ic120_handler" type="joy2cmd_publisher">
+      <remap from="~joy" to="joy" />
+      <remap from="~cmd_vel" to="cmd_vel" />
+    </node>
+  </group>
+</launch>
