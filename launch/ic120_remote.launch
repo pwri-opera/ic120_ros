@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find ic120_handler)/launch/joy2cmd_publisher.launch"/>
+  <include file="$(find ic120_handler)/launch/ic120_handler.launch"/>
+</launch>
