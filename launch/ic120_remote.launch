@@ -1,4 +1,13 @@
 <launch>
-  <include file="$(find ic120_handler)/launch/joy2cmd_publisher.launch"/>
-  <include file="$(find ic120_handler)/launch/ic120_handler.launch"/>
+  <arg name="plane" default="9"/>
+
+  <!-- <include file="$(find ic120_handler)/launch/joy2cmd_publisher.launch"/>
+  <include file="$(find ic120_handler)/launch/ic120_handler.launch"/> -->
+  <group ns="ic120">
+    <group ns="PoSLV">
+      <node pkg="gnss_localizer" type="fix_imu2tfpose" name="fix_imu2tfpose" output="log">
+        <param name="plane" value="$(arg plane)"/>
+      </node>
+    </group>
+  </group>
 </launch>
