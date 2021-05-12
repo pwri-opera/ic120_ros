@@ -1,0 +1,13 @@
+<launch>
+  <group ns="ic120">
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_global" clear_params="true" output="screen">
+      <rosparam command="load" file="$(find ic120_launch)/config/ic120_ekf.yaml" />
+      <!-- <param name="tf_prefix" value="ic120"/> -->
+      <remap from="odometry/filtered" to="odometry/global" />
+      <remap from="odom0" to="odom" />
+      <remap from="odom1" to="PoSLV/gnss_odom" />
+      <!-- <remap from="imu0"  to="imu/data" /> -->
+    </node>
+  </group>
+</launch>
