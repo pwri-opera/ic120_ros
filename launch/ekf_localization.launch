@@ -1,5 +1,6 @@
 <launch>
   <group ns="ic120">
+    <node pkg="ic120_nav" type="poseStamped2Odometry.py" name="poseStamped2Odometry"/>
 
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_global" clear_params="true" output="screen">
       <rosparam command="load" file="$(find ic120_launch)/config/ic120_ekf.yaml" />
