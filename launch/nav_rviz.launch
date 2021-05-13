@@ -1,0 +1,8 @@
+<launch>
+  <group ns="ic120">
+    <param name="use_gui" value="true"/>
+    <arg name="config" default="robot" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_nav)/rviz/navigation.rviz">
+    </node>
+  </group>
+</launch>
