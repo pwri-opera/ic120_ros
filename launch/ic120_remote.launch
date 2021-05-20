@@ -1,7 +1,7 @@
 <launch>
   <arg name="plane" default="9"/>
 
-  <include file="$(find ic120_handler)/launch/ic120_handler.launch"/>
+  <!-- <include file="$(find ic120_handler)/launch/ic120_handler.launch"/> -->
 
   <group ns="ic120">
     <arg name="model" default="$(find ic120_model)/urdf/ic120.xacro"/>
