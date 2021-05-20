@@ -3,7 +3,7 @@
     <node pkg="ic120_nav" type="poseStamped2Odometry.py" name="poseStamped2Odometry"/>
 
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_global" clear_params="true" output="screen">
-      <rosparam command="load" file="$(find ic120_launch)/config/ic120_ekf.yaml" />
+      <rosparam command="load" file="$(find ic120_nav)/config/ic120_ekf.yaml" />
       <!-- <param name="tf_prefix" value="ic120"/> -->
       <remap from="odometry/filtered" to="odometry/global" />
       <remap from="odom0" to="odom" />
