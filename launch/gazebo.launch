@@ -1,0 +1,36 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+  <group ns="ic120">
+    <arg name="model" default="$(find ic120_model)/urdf/ic120_gazebo.xacro"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model) --inorder"/>
+    <param name="tf_prefix" value="ic120" />
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model ic120" />
+
+    <rosparam command="load" file="$(find ic120_gazebo)/config/diff_drive_controller.yaml" />
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="diff_drive_controller" />
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <!-- <node pkg="tf" type="static_transform_publisher" name="gps_static_tf" args="0 0 0 0 0 0 /ic120/gps_compass /ic120/base_link 30"/> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="map_static_tf" args="0 0 0 0 0 0 /map /ic120/odom 30"/>
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_model)/rviz/urdf.rviz" required="true" /> -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_nav)/rviz/navigation.rviz">
+      <param name="tf_prefix" value="ic120" />
+    </node>
+ 
+    <node pkg="topic_tools" type="relay" name="relay_cmd_vel" args="cmd_vel diff_drive_controller/cmd_vel" />
+    <node pkg="topic_tools" type="relay" name="relay_odom" args="odom diff_drive_controller/odom" />
+ 
+  </group>
+</launch>
