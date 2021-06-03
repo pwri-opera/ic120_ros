@@ -120,4 +120,39 @@
     <child  link="cabin_window_link"/>
     <axis xyz="0 0 1" />
   </joint>
+
+  <link name="vessel_pin_link">
+    <visual>
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="Gray">
+        <color rgba="0.7 0.7 0.7 0.2"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="1.0e-03" />
+      <inertia ixx="1.0e-03" ixy="0.0" ixz="0.0"
+               iyy="1.0e-03" iyz="0.0"
+               izz="1.0e-03" />
+    </inertial>
+  </link>
+  <joint name="vessel_pin_joint" type="revolute">
+    <origin xyz="-2 0 1.5" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child  link="vessel_pin_link"/>
+    <axis xyz="0 1 0" />
+    <limit effort="1" lower="-3.14" upper="0" velocity="0.5"/>
+  </joint>
+
+  <link name="vessel_middle_link"/>
+  <joint name="vessel_middle_joint" type="fixed">
+    <origin xyz="1 0 1" rpy="0 0 0"/>
+    <parent link="vessel_pin_link"/>
+    <child  link="vessel_middle_link"/>
+  </joint>
+
+
 </robot>
