@@ -10,8 +10,8 @@ publish_voxel_map: false
 transform_tolerance: 0.5
 meter_scoring: true
 
-footprint: [[-0.21, -0.165], [-0.21, 0.165], [0.21, 0.165], [0.21, -0.165]]
-footprint_padding: 0.1
+footprint: [[3.025, -1.685], [-3.025, -1.685], [-3.025, 1.685], [3.025, 1.685]]
+footprint_padding: 0.5
 
 plugins:
 - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
