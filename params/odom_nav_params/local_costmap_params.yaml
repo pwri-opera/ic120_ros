@@ -1,10 +1,10 @@
 local_costmap:
-   global_frame: odom
-   robot_base_frame: base_link
-   update_frequency: 20.0
+   global_frame: ic120/odom
+   robot_base_frame: ic120/base_link
+   update_frequency: 10.0
    publish_frequency: 5.0
-   width: 10.0
-   height: 10.0
-   resolution: 0.05
+   width: 20.0
+   height: 20.0
+   resolution: 0.1
    static_map: false
    rolling_window: true

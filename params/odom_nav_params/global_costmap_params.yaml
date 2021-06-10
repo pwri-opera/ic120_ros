@@ -1,10 +1,10 @@
 global_costmap:
-  global_frame: odom
-  robot_base_frame: base_link
+  global_frame: ic120/odom
+  robot_base_frame: ic120/base_link
   update_frequency: 20
   publish_frequency: 5
-  width: 40.0
-  height: 40.0
+  width: 100.0
+  height: 100.0
   resolution: 0.05
   origin_x: -20.0
   origin_y: -20.0
