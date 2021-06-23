@@ -14,7 +14,7 @@ from ic120_nav.srv import dump_nav,dump_navResponse
 from geometry_msgs.msg import Pose
 
 def server(req):
-    print("Get service call for dumpup")
+    print("Get service call for navigation")
     response = dump_navResponse()
     response.is_ok.data = True
     return response
