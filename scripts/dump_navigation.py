@@ -64,9 +64,9 @@ if __name__ == '__main__':
                 rospy.wait_for_service('ic120_nav_srv')
                 while True:
                     print("waiting for permission from const_manager")
-                    srv_proxy  = rospy.ServiceProxy('ic120_nav_srv', dump_nav)
+                    nav_srv_proxy  = rospy.ServiceProxy('ic120_nav_srv', dump_nav)
                     request = dump_navRequest()
-                    response = srv_proxy (request)
+                    response = nav_srv_proxy (request)
                     rospy.sleep(1)                    
                     if(response.is_ok.data == True):
                         print("permitted")
