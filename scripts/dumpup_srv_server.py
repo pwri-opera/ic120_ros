@@ -42,6 +42,6 @@ def server(req):
 if __name__ == '__main__':
     rospy.init_node("dumpup_server")
     
-    s = rospy.Service("dumpup_svs", dump_nav, server)
+    s = rospy.Service("dumpup_srv", dump_nav, server)
     print("Ready to Dump up service client.")
     rospy.spin()

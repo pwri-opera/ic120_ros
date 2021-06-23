@@ -86,9 +86,9 @@ if __name__ == '__main__':
                     if(client.wait_for_result(rospy.Duration(0.5)) == True):
                         if(dumup_flag == True):
                             print("waiting for dumpup_manager")
-                            srv_proxy  = rospy.ServiceProxy('dumpup_svs', dump_nav)
+                            dumpup_srv_proxy  = rospy.ServiceProxy('dumpup_srv', dump_nav)
                             request = dump_navRequest()
-                            response = srv_proxy (request)
+                            response = dumpup_srv_proxy (request)
                             rospy.sleep(1)                    
                             if(response.is_ok.data == True):
                                 print("permitted")
