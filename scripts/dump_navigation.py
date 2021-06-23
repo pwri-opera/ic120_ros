@@ -85,6 +85,7 @@ if __name__ == '__main__':
                     # print("wait for service back from local/global planner")
                     if(client.wait_for_result(rospy.Duration(0.5)) == True):
                         if(dumup_flag == True):
+                            rospy.wait_for_service('dumpup_srv') 
                             print("waiting for dumpup_manager")
                             dumpup_srv_proxy  = rospy.ServiceProxy('dumpup_srv', dump_nav)
                             request = dump_navRequest()
