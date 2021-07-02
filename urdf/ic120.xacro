@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot name="ic120" xmlns:xacro="http://ros.org/wiki/xacro" >
   <xacro:property name="PI" value="3.1415926535" />
-  <xacro:property name="temp_mass" value="100" />
-  <xacro:property name="base_mass" value="100" />
+  <xacro:property name="temp_mass" value="1" />
+  <xacro:property name="base_mass" value="1" />
   <xacro:property name="model_offset_x" value="3.1" />
   <xacro:property name="model_offset_y" value="-1.5" />
   <!-- <xacro:property name="model_offset_x" value="-1.5" />
