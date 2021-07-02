@@ -1,0 +1,25 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+  <!-- <arg name="robot_name" default="ic120"/>
+  <arg name="init_pose" default="-x 0 -y -0 -z 0.2"/> -->
+  <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
+  <arg name="gui" default="false" doc="Starts gazebo gui" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <include file="$(find ic120_gazebo)/launch/ic120.launch">
+    <arg name="init_pose" value="-x 5 -y 5 -z 0.2"/>
+    <arg name="robot_name" value="ic120"/>
+  </include>
+
+  <include file="$(find ic120_gazebo)/launch/ic120.launch">
+    <arg name="init_pose" value="-x -5 -y -5 -z 0.2"/>
+    <arg name="robot_name" value="ic120_2"/>
+  </include>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_gazebo)/rviz/navigation_two_ic120.rviz"/>
+</launch>
