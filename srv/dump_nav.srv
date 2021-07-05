@@ -1,3 +1,7 @@
+geometry_msgs/PoseStamped target_pose
+std_msgs/Bool orientation_flag
+std_msgs/Bool dump_flag
 ---
 std_msgs/Bool is_ok
-geometry_msgs/Pose target_pose
+
+#geometry_msgs/Pose target_pose
