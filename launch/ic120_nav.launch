@@ -1,5 +1,7 @@
 <launch>
-  <group ns="ic120">
+  <arg name="robot_name" default="ic120"/>
+
+  <group ns="$(arg robot_name)">
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
 
       <rosparam file="$(find ic120_nav)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
@@ -14,9 +16,14 @@
       <param name="base_global_planner" type="string" value="global_planner/GlobalPlanner" />
       <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
 
+      <param name="global_costmap/global_frame" value="map"/>
+      <param name="global_costmap/robot_base_frame" value="$(arg robot_name)_tf/base_link"/>
 
+      <param name="local_costmap/global_frame" value="map"/>
+      <param name="local_costmap/robot_base_frame" value="$(arg robot_name)_tf/base_link"/>
 
-      <!-- <remap from="odom" to="odometry/filtered" /> -->
+      <remap from="cmd_vel" to="diff_drive_controller/cmd_vel" />
+      <remap from="odom" to="diff_drive_controller/odom" />
     </node>
   </group>
  </launch>
