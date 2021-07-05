@@ -31,6 +31,7 @@ if __name__ == '__main__':
         request = dump_navRequest()
         response = nav_srv_proxy (request)
         if(response.is_ok.data == False):
+            rospy.sleep(1)
             continue
         goal = goal_pose(response.target_pose)
         client.send_goal(goal)
