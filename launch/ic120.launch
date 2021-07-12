@@ -11,7 +11,7 @@
 
     <node name="gazebo_odom_truth" pkg="gazebo_tools" type="nav_gazebo_odom"  output="screen">
       <param name="model_name"  value="$(arg robot_name)" />
-      <param name="odom_frame" value="map" />
+      <param name="odom_frame" value="world" />
       <param name="base_frame"  value="$(arg robot_name)_tf/base_link" />
       <param name="publish_rate"  value="20" />
       <param name="noise"  value="0.0" />
