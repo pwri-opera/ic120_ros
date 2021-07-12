@@ -76,7 +76,7 @@ while not rospy.is_shutdown():
         twist_y = math.cos(yaw) * vel_y_world - math.sin(yaw) * vel_x_world
 
         odom = Odometry()
-        odom.header.frame_id = 'map'
+        odom.header.frame_id = 'world'
         odom.child_frame_id = 'gnss/base_link'
         odom.header.stamp = rospy.Time.now()
 
