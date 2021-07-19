@@ -11,7 +11,7 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import Vector3
 from ic120_nav.srv import dump_nav,dump_navResponse,dump_navRequest
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseArray,PoseStamped
 
 
 # waypointはworld座標系で記載する
@@ -60,7 +60,17 @@ world2map_trans=[0,0,0]
 world2map_rot=[0,0,0,0]
 
 
-waypoint_arrow_pub = rospy.Publisher("/ic120/waypoint", PoseStamped, queue_size=10)
+def waypoint_PoseArray_publisher():
+    waypoint_posearray_pub = rospy.Publisher("/ic120/waypoints", PoseArray, queue_size=10)
+    waypoints_array = PoseArray()
+    waypoints_array.header.frame_id="world"
+    for waypoint in waypoints:
+        waypoint_arrow = PoseStamped()
+        waypoint_arrow.pose.position.x=waypoint[0]
+        waypoint_arrow.pose.position.y=waypoint[1]
+        waypoint_arrow.pose.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
+        waypoints_array.poses.append(waypoint_arrow)    
+
 
 def server(req):
     print("Get service call for navigation")
@@ -75,16 +85,6 @@ def server(req):
     print("waypoint:", waypoint_num)
     print("waypoint Pos:", waypoint[0],waypoint[1],waypoint[2])
 
-
-    waypoint_arrow_pub = rospy.Publisher("/ic120/waypoint", PoseStamped, queue_size=10)
-
-    waypoint_arrow = PoseStamped()
-    waypoint_arrow.header.frame_id = "world"
-    waypoint_arrow.pose.position.x=waypoint[0]
-    waypoint_arrow.pose.position.y=waypoint[1]
-    waypoint_arrow.pose.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
-    waypoint_arrow_pub.publish(waypoint_arrow)
-    
     response = dump_navResponse()
     response.is_ok.data = True
     response.target_pose.header.frame_id="map"
@@ -97,13 +97,12 @@ def server(req):
 
 if __name__ == '__main__':
     rospy.init_node("fake_const_manager")
-
     now = rospy.Time.now()
     listener = tf.TransformListener()
     listener.waitForTransform("world", "map", rospy.Time(0), rospy.Duration(4.0))
     world2map_trans,world2map_rot = listener.lookupTransform("world", "map", rospy.Time(0))
     print("World2Map Trans:", world2map_trans[0], world2map_trans[1])
-
+    waypoint_PoseArray_publisher()
     s = rospy.Service("ic120_nav_srv", dump_nav, server)
     print("Ready to navigation service client")
     rospy.spin()
