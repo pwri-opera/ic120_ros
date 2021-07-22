@@ -11,7 +11,7 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import Vector3
 from ic120_nav.srv import dump_nav,dump_navResponse,dump_navRequest
-from geometry_msgs.msg import PoseArray,PoseStamped
+from geometry_msgs.msg import PoseArray,Pose
 
 
 # waypointはworld座標系で記載する
@@ -59,18 +59,21 @@ waypoint_num=0
 world2map_trans=[0,0,0]
 world2map_rot=[0,0,0,0]
 
+waypoint_posearray_pub = rospy.Publisher("/ic120/waypoints", PoseArray, queue_size=10)
 
 def waypoint_PoseArray_publisher():
-    waypoint_posearray_pub = rospy.Publisher("/ic120/waypoints", PoseArray, queue_size=10)
     waypoints_array = PoseArray()
     waypoints_array.header.frame_id="world"
+    waypoints_array.header.stamp = rospy.Time.now()
     for waypoint in waypoints:
-        waypoint_arrow = PoseStamped()
-        waypoint_arrow.pose.position.x=waypoint[0]
-        waypoint_arrow.pose.position.y=waypoint[1]
-        waypoint_arrow.pose.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
+        waypoint_arrow = Pose()
+        waypoint_arrow.position.x=waypoint[0]
+        waypoint_arrow.position.y=waypoint[1]
+        waypoint_arrow.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
         waypoints_array.poses.append(waypoint_arrow)    
-
+    # print(waypoints_array)
+    rospy.sleep(1)
+    waypoint_posearray_pub.publish(waypoints_array)
 
 def server(req):
     print("Get service call for navigation")
