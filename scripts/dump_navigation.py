@@ -44,6 +44,7 @@ if __name__ == '__main__':
                 print("orientation_flat==True")
                 if(client.wait_for_result(rospy.Duration(0.5)) == True):
                     if(response.dump_flag.data == True):
+                        rospy.sleep(1.0)
                         print("waiting for dumpup_manager")
                         rospy.wait_for_service('dumpup_srv') 
                         dumpup_srv_proxy  = rospy.ServiceProxy('dumpup_srv', dump_nav)
@@ -58,7 +59,7 @@ if __name__ == '__main__':
             else:
                 print("orientation_flag==False")
                 # ウェイポイントのゴールの周囲１ｍ以内にロボットが来たら、次のウェイポイントを発行する
-                if(math.sqrt((position[0]-goal.target_pose.pose.position.x)**2 + (position[1]-goal.target_pose.pose.position.y)**2 ) <= 1):
+                if(math.sqrt((position[0]-goal.target_pose.pose.position.x)**2 + (position[1]-goal.target_pose.pose.position.y)**2 ) <= 0.5):
                     print("next waitpoint")
                     break
                 else:
