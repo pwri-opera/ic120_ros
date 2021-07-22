@@ -85,6 +85,7 @@ def waypoint_PoseArray_publisher():
         waypoint_arrow = Pose()
         waypoint_arrow.position.x=waypoint[0]
         waypoint_arrow.position.y=waypoint[1]
+        waypoint_arrow.position.z=world2map_trans[2]
         waypoint_arrow.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
         waypoints_array.poses.append(waypoint_arrow)
     # print(waypoints_array)
