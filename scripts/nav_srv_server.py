@@ -39,16 +39,32 @@ waypoints = [
     # [21426,14020,-math.pi/2,True,False],#7 #1reverse
 
     ### 本番用
-    [21426,14020,-math.pi/2,True,False],#1
-    [21426,14030,-math.pi/2,True,False],#2
-    [21421.70,14038,-math.pi/2,True,False],#3
-    [21421.70,14040,-math.pi/2,True,False],#4
-    [21421.70,14035,-math.pi/2,True,False],#5 #3reverse
-    [21426,14030,-math.pi/2,True,False],#6 #2reverse
-    [21430,14020,0,True,False],#7
-    [21426,14020,0,True,False],#8
-    [21421.70,14020,0,True,True],#9
-    [21430,14020,0,True,False],#10 #7revserse #2に戻る
+    # [21426,14020,-math.pi/2,True,False],#1
+    # [21426,14030,-math.pi/2,True,False],#2
+    # [21421.70,14038,-math.pi/2,True,False],#3
+    # [21421.70,14040,-math.pi/2,True,False],#4 #loading point
+    # [21421.70,14035,-math.pi/2,True,False],#5 #3reverse
+    # [21426,14030,-math.pi/2,True,False],#6 #2reverse
+    # [21430,14020,0,True,False],#7
+    # [21426,14020,0,True,False],#8
+    # [21421.70,14020,0,True,True],#9 #release point
+    # [21430,14020,0,True,False],#10 #7revserse #2に戻る
+
+    ### 経路テスト
+    # [21431.7,14020,-61.7*math.pi/180,True,False],#1
+    # [21426,14030,-61.7*math.pi/180,True,False],#2
+    # [21421.7,14038,-61.7*math.pi/180,True,False],#3
+    # [21426,14030,-61.7*math.pi/180,True,False],#4 #2
+    # [21431.7,14020,0,True,False],#5 #1
+    # [21426,14021,0,True,False],#6
+
+    ### 本番用２
+    [21434.66,14017.39,-63.5*math.pi/180,True,False],#1
+    [21427.81,14030,-63.5*math.pi/180,False,False],#2
+    # [21421.21,14043.35,-63.5*math.pi/180,True,False],#3
+    # [21427.81,14030,-63.5*math.pi/180,True,False],#4=#2
+    [21434.66,14017.39,-63.5*math.pi/180,True,False],#5=1
+    [21422,14023,0,True,False],#6     [21422,14022,0,True,True],#6bk
 ]
 
 def euler_to_quaternion(euler):
@@ -70,7 +86,7 @@ def waypoint_PoseArray_publisher():
         waypoint_arrow.position.x=waypoint[0]
         waypoint_arrow.position.y=waypoint[1]
         waypoint_arrow.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
-        waypoints_array.poses.append(waypoint_arrow)    
+        waypoints_array.poses.append(waypoint_arrow)
     # print(waypoints_array)
     rospy.sleep(1)
     waypoint_posearray_pub.publish(waypoints_array)
