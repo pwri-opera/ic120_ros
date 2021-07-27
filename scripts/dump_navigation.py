@@ -8,26 +8,43 @@ import tf
 from nav_msgs.msg import Odometry
 import math
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
-from geometry_msgs.msg import Quaternion
-from geometry_msgs.msg import Vector3
+from geometry_msgs.msg import Quaternion, Vector3, Pose
 from ic120_nav.srv import dump_nav,dump_navRequest,dump_navResponse
+
+world2map_trans=[0,0,0]
+world2map_rot=[0,0,0,0]
 
 def goal_pose(pose):
     print(pose)
     goal_pose = MoveBaseGoal()
-    goal_pose.target_pose = pose
+    goal_pose.target_pose.header.frame_id="map"
+    goal_pose.target_pose.pose.position.x = pose.pose.position.x-world2map_trans[0]
+    goal_pose.target_pose.pose.position.y = pose.pose.position.y-world2map_trans[1]
+    goal_pose.target_pose.pose.position.z = pose.pose.position.z-world2map_trans[2]
+    goal_pose.target_pose.pose.orientation = pose.pose.orientation
     return goal_pose
 
 if __name__ == '__main__':
+    print("Start nav")
     rospy.init_node("ic120_navigation")
-    client = actionlib.SimpleActionClient('/ic120/move_base', MoveBaseAction) 
+    client = actionlib.SimpleActionClient('move_base', MoveBaseAction) 
     listener = tf.TransformListener()
+
+    listener.waitForTransform("world", "map", rospy.Time(0), rospy.Duration(4.0))
+    world2map_trans,world2map_rot = listener.lookupTransform("world", "map", rospy.Time(0))
+
+    print("wait actionclient")
 
     client.wait_for_server()
 
-    rospy.wait_for_service("ic120_nav_srv")
+    print("wait service")
+
+    rospy.wait_for_service('nav_srv')
+
+    print("Start loop")
+
     while True:
-        nav_srv_proxy  = rospy.ServiceProxy("ic120_nav_srv", dump_nav)
+        nav_srv_proxy  = rospy.ServiceProxy('nav_srv', dump_nav)
         request = dump_navRequest()
         response = nav_srv_proxy (request)
         if(response.is_ok.data == False):
