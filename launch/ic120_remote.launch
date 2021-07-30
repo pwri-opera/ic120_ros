@@ -26,8 +26,8 @@
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
-    <node pkg="tf" type="static_transform_publisher" name="vessel_static_tf" args="-1.23 0 2 0 0 0 $(arg robot_name)_tf/base_link $(arg robot_name)_tf/vessel_pin_link 30"/>
-    <!-- <node pkg="tf" type="static_transform_publisher" name="gps_static_tf" args="0 0 0 0 0 0 /ic120/gps_compass /ic120/base_link 30"/> -->
+
+
     <node pkg="rostopic" type="rostopic" name="cmd_spin_publisher" args="pub /ic120/cmd_spin std_msgs/Bool True -r 1" output="screen"/>
   </group>
 </launch>
