@@ -58,7 +58,7 @@
   <link name="upper_frame_link">
     <visual>
       <geometry>
-        <mesh filename="package://ic120_model/mesh/upper.stl" />
+        <mesh filename="package://ic120_model/mesh/upper_frame.stl" />
       </geometry>
       <origin rpy="0 0 ${PI/2}" xyz="${model_offset_x} ${model_offset_y} 0"/>
       <material name="Teal">
@@ -124,11 +124,11 @@
   <link name="vessel_pin_link">
     <visual>
       <geometry>
-        <box size="0.001 0.001 0.001" />
+        <mesh filename="package://ic120_model/mesh/vessel.stl" />
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="Gray">
-        <color rgba="0.7 0.7 0.7 0.2"/>
+      <origin rpy="0 0 ${PI/2}" xyz="${model_offset_x+2.3} ${model_offset_y} -1.55"/>
+      <material name="Teal">
+        <color rgba="0 0.5 0.5 1.0"/>
       </material>
     </visual>
     <inertial>
@@ -140,19 +140,18 @@
     </inertial>
   </link>
   <joint name="vessel_pin_joint" type="revolute">
-    <origin xyz="-2 0 1.5" rpy="0 0 0"/>
+    <origin xyz="-2.30 0 1.55" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child  link="vessel_pin_link"/>
     <axis xyz="0 1 0" />
     <limit effort="1" lower="-3.14" upper="0" velocity="0.5"/>
   </joint>
 
-  <link name="vessel_middle_link"/>
-  <joint name="vessel_middle_joint" type="fixed">
-    <origin xyz="1 0 1" rpy="0 0 0"/>
-    <parent link="vessel_pin_link"/>
-    <child  link="vessel_middle_link"/>
+  <link name="vessel_link"/>
+  <joint name="vessel_joint" type="fixed">
+  <origin xyz="-1.6 0 1.5" rpy="0 0 0"/>
+    <parent link="track_frame_link"/>
+    <child  link="vessel_link"/>
+    <axis xyz="0 0 1" />
   </joint>
-
-
 </robot>
