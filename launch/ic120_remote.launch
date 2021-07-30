@@ -2,7 +2,8 @@
   <arg name="plane" default="9"/>
   <arg name="robot_name" default="ic120"/>
 
-  <!-- <node pkg="tf" type="static_transform_publisher" name="world_to_map" args="20000 10000 0 0 0 0 world map 30"/> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="world_to_map" args="21421.70 14020 68.62 0 0 0 world map 30"/> -->
+  <node pkg="tf" type="static_transform_publisher" name="base_link_offset_tf" args="0.66 0 0 0 0 0 $(arg robot_name)_tf/base_link $(arg robot_name)_tf/base_link_rot 30"/>
 
   <group ns="$(arg robot_name)">
     <arg name="model" default="$(find ic120_model)/urdf/ic120.xacro"/>
