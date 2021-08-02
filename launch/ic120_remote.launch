@@ -1,12 +1,18 @@
 <launch>
   <arg name="plane" default="9"/>
+  <arg name="robot_name" default="ic120"/>
 
-  <include file="$(find ic120_handler)/launch/ic120_handler.launch"/>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="world_to_map" args="21421.70 14020 68.62 0 0 0 world map 30"/> -->
+  <node pkg="tf" type="static_transform_publisher" name="base_link_offset_tf" args="0.66 0 0 0 0 0 $(arg robot_name)_tf/base_link $(arg robot_name)_tf/base_link_rot 30"/>
 
-  <group ns="ic120">
+  <group ns="$(arg robot_name)">
     <arg name="model" default="$(find ic120_model)/urdf/ic120.xacro"/>
-    <param name="tf_prefix" value="ic120" />
-    <param name="/ic120/robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+    <param name="tf_prefix" value="$(arg robot_name)_tf"/>
+
+    <!-- <include file="$(find ic120_handler)/launch/ic120_handler.launch">
+      <arg name="robot_name" value="$(arg robot_name)"/>
+    </include> -->
 
     <group ns="PoSLV">
       <node pkg="gnss_localizer" type="fix_imu2tfpose" name="fix_imu2tfpose" output="log">
@@ -14,8 +20,19 @@
       </node>
     </group>
 
+    <include file="$(find ic120_nav)/launch/ekf_localization.launch">
+      <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-    <node pkg="tf" type="static_transform_publisher" name="vessel_static_tf" args="-1.23 0 2 0 0 0 /ic120/base_link /ic120/vessel_link 30"/>
-    <node pkg="tf" type="static_transform_publisher" name="gps_static_tf" args="0 0 0 0 0 0 /ic120/gps_compass /ic120/base_link 30"/>
+
+    <include file="$(find ic120_nav)/launch/ic120_nav.launch">
+      <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <include file="$(find ic120_track_pid_control)/launch/ic120_track_pid_control.launch"/>
+
+
+    <node pkg="rostopic" type="rostopic" name="cmd_spin_publisher" args="pub /ic120/cmd_spin std_msgs/Bool True -r 1" output="screen"/>
   </group>
 </launch>
