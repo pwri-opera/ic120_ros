@@ -1,0 +1,14 @@
+<launch>
+  <arg name="plane" default="9"/>
+  <arg name="robot_name" default="ic120"/>
+
+  <group ns="$(arg robot_name)">
+    <param name="tf_prefix" value="$(arg robot_name)_tf"/>
+
+    <include file="$(find ic120_handler)/launch/ic120_handler.launch">
+      <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+    <include file="$(find g2_ros)/launch/g2_ros.launch"/>
+    <include file="$(find ic120_joint_publisher)/launch/ic120_joint_publisher.launch"/>
+  </group>
+</launch>
