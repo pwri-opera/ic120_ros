@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /TF1/Frames1
+        - /PointCloud22
+        - /PointCloud22/Status1
       Splitter Ratio: 0.40310078859329224
     Tree Height: 728
   - Class: rviz/Selection
@@ -92,10 +94,6 @@ Visualization Manager:
           Show Trail: false
           Value: true
         vessel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        vessel_middle_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -259,8 +257,6 @@ Visualization Manager:
           Value: true
         ic120_tf/vessel_link:
           Value: true
-        ic120_tf/vessel_middle_link:
-          Value: true
         ic120_tf/vessel_pin_link:
           Value: true
         livox_frame:
@@ -342,8 +338,7 @@ Visualization Manager:
                   ic120_tf/vessel_link:
                     {}
                 ic120_tf/vessel_pin_link:
-                  ic120_tf/vessel_middle_link:
-                    {}
+                  {}
             zx120/odom:
               zx120/base_link:
                 zx120/local_grid_map:
@@ -538,7 +533,7 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 151
+      Max Intensity: 150
       Min Color: 0; 0; 0
       Min Intensity: 0
       Name: PointCloud2
@@ -549,6 +544,36 @@ Visualization Manager:
       Size (m): 0.009999999776482582
       Style: Flat Squares
       Topic: /ic120/livo_to_ele
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 3
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 255
+      Min Color: 0; 0; 0
+      Min Intensity: 10
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /livo_to_ele_filtered
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -581,25 +606,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 20.324684143066406
+      Distance: 11.548463821411133
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 6.391617298126221
-        Y: 18.67868995666504
-        Z: -1.250224704563152e-5
+        X: -8.006158828735352
+        Y: 25.777442932128906
+        Z: 3.2878870115382597e-7
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7302036881446838
+      Pitch: 0.3402039110660553
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 0.4535679519176483
+      Yaw: 3.446762800216675
     Saved: ~
 Window Geometry:
   Displays:
