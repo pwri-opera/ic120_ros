@@ -61,8 +61,8 @@ waypoints = [
     ### 本番用２
     [21434.66,14017.39,-63.5*math.pi/180,True,False],#1
     [21427.81,14030,-63.5*math.pi/180,True,False],#2
-    # [21421.21,14043.35,-63.5*math.pi/180,True,False],#3
-    # [21427.81,14030,-63.5*math.pi/180,True,False],#4=#2
+    [21421.21,14043.35,-63.5*math.pi/180,True,False],#3
+    [21427.81,14030,-63.5*math.pi/180,True,False],#4=#2
     [21434.66,14017.39,-63.5*math.pi/180,True,False],#5=1
     [21422,14023,0,True,False],#6     [21422,14022,0,True,True],#6bk
 ]
@@ -107,9 +107,10 @@ def server(req):
 
     response = dump_navResponse()
     response.is_ok.data = True
-    response.target_pose.header.frame_id="map"
-    response.target_pose.pose.position.x=waypoint[0]-world2map_trans[0]
-    response.target_pose.pose.position.y=waypoint[1]-world2map_trans[1]
+    response.target_pose.header.frame_id="world"
+    response.target_pose.pose.position.x=waypoint[0] #-world2map_trans[0]
+    response.target_pose.pose.position.y=waypoint[1] #-world2map_trans[1]
+    response.target_pose.pose.position.z=world2map_trans[2]
     response.target_pose.pose.orientation=euler_to_quaternion(Vector3(0,0,waypoint[2]))    
     response.orientation_flag.data=waypoint[3]
     response.dump_flag.data=waypoint[4]
@@ -121,8 +122,8 @@ if __name__ == '__main__':
     listener = tf.TransformListener()
     listener.waitForTransform("world", "map", rospy.Time(0), rospy.Duration(4.0))
     world2map_trans,world2map_rot = listener.lookupTransform("world", "map", rospy.Time(0))
-    print("World2Map Trans:", world2map_trans[0], world2map_trans[1])
+    print("World2Map Trans:", world2map_trans[0], world2map_trans[1],  world2map_trans[2])
     waypoint_PoseArray_publisher()
-    s = rospy.Service("ic120_nav_srv", dump_nav, server)
+    s = rospy.Service("/ic120/nav_srv", dump_nav, server)
     print("Ready to navigation service client")
     rospy.spin()
