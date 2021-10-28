@@ -1,0 +1,21 @@
+<launch>
+  <arg name="robot_name" default="ic120"/>
+
+  <group ns="$(arg robot_name)">
+    <node name="dump_nav" type="dump_navigation.py" pkg="ic120_nav" output="screen"/>
+    <!-- <node name="waypoint_server" type="nav_srv_server.py" pkg="ic120_nav"/> -->
+    <node name="dumpup_server" type="dumpup_srv_server.py" pkg="ic120_nav"/>    
+
+
+    <param name="use_gui" value="true"/>
+    <arg name="config" default="robot" />
+    <arg name="model" default="$(find ic120_model)/urdf/ic120.xacro"/>
+    <param name="/ic120/robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
+
+    <node name="rviz_ic120_nav_demo" pkg="rviz" type="rviz" args="-d $(find ic120_nav)/rviz/zx120_ic120_demo.rviz">
+      <param name="tf_prefix" value="ic120" />
+    </node>
+  </group>
+</launch>
