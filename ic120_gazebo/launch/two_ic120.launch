@@ -5,6 +5,9 @@
   <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
   <arg name="gui" default="false" doc="Starts gazebo gui" />
 
+  <node pkg="tf" type="static_transform_publisher" name="world_to_map" args="9 9 0 0 0 0 world map 30"/>
+
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" default="worlds/empty.world"/>
     <arg name="paused" value="$(arg paused)"/>

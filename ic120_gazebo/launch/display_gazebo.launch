@@ -19,6 +19,6 @@
     <!-- <node pkg="tf" type="static_transform_publisher" name="dump_link_tf" args="-2 0 1 0 0 0 /ic120/base_link /ic120/dump_pin_link 30"/> -->
 
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_model)/rviz/urdf.rviz" required="true" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_description)/rviz/urdf.rviz" required="true" />
   </group>
 </launch>

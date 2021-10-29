@@ -1,11 +1,11 @@
 diff_drive_controller:
   type        : "diff_drive_controller/DiffDriveController"
-  left_wheel  : ['left_front3_wheel_joint','left_front2_wheel_joint','left_front1_wheel_joint','left_middle_wheel_joint','left_rear1_wheel_joint','left_rear2_wheel_joint','left_rear3_wheel_joint']
-  right_wheel  : ['right_front3_wheel_joint','right_front2_wheel_joint','right_front1_wheel_joint','right_middle_wheel_joint','right_rear1_wheel_joint','right_rear2_wheel_joint','right_rear3_wheel_joint']
+  left_wheel  : ['left_middle_wheel_joint']
+  right_wheel  : ['right_middle_wheel_joint']
 
   publish_rate: 20.0
   cmd_vel_timeout: 1.0
-  wheel_separation : 2.0
+  wheel_separation : 4.0
   wheel_radius : 0.5
   pose_covariance_diagonal : [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
   twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
@@ -25,13 +25,13 @@ diff_drive_controller:
       max_velocity           : 3.0 # m/s
       min_velocity           : -3.0 # m/s
       has_acceleration_limits: true
-      max_acceleration       :  2.0 # m/s^2
-      min_acceleration       : -2.0 # m/s^2
+      max_acceleration       :  0.5 # m/s^2
+      min_acceleration       : -0.5 # m/s^2
   angular:
     z:
       has_velocity_limits    : true
-      max_velocity           :  1.5 # rad/s
-      min_velocity           : -1.5 # rad/s
+      max_velocity           :  1.0 # rad/s
+      min_velocity           : -1.0 # rad/s
       has_acceleration_limits: true
-      max_acceleration       :  1.0  # rad/s^2
-      min_acceleration       : -1.0 # rad/s^2
+      max_acceleration       :  0.7  # rad/s^2
+      min_acceleration       : -0.7 # rad/s^2

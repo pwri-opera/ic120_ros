@@ -68,22 +68,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        cabin_link:
+        body_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        cabin_window_link:
+        cylinder_head_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_front1_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_front2_wheel_link:
+        cylinder_rod_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -98,27 +93,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        left_rear1_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_rear2_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         left_rear3_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_front1_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_front2_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -133,40 +108,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        right_rear1_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_rear2_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         right_rear3_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        track_belt_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        track_frame_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        upper_frame_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        vessel_middle_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         vessel_pin_link:
           Alpha: 1
           Show Axes: false
@@ -310,47 +256,25 @@ Visualization Manager:
         All Enabled: false
         ic120_tf/base_link:
           Value: true
-        ic120_tf/cabin_link:
+        ic120_tf/body_link:
           Value: true
-        ic120_tf/cabin_window_link:
+        ic120_tf/cylinder_head_link:
           Value: true
-        ic120_tf/left_front1_wheel_link:
-          Value: true
-        ic120_tf/left_front2_wheel_link:
+        ic120_tf/cylinder_rod_link:
           Value: true
         ic120_tf/left_front3_wheel_link:
           Value: true
         ic120_tf/left_middle_wheel_link:
           Value: true
-        ic120_tf/left_rear1_wheel_link:
-          Value: true
-        ic120_tf/left_rear2_wheel_link:
-          Value: true
         ic120_tf/left_rear3_wheel_link:
           Value: true
         ic120_tf/odom:
-          Value: true
-        ic120_tf/right_front1_wheel_link:
-          Value: true
-        ic120_tf/right_front2_wheel_link:
           Value: true
         ic120_tf/right_front3_wheel_link:
           Value: true
         ic120_tf/right_middle_wheel_link:
           Value: true
-        ic120_tf/right_rear1_wheel_link:
-          Value: true
-        ic120_tf/right_rear2_wheel_link:
-          Value: true
         ic120_tf/right_rear3_wheel_link:
-          Value: true
-        ic120_tf/track_belt_link:
-          Value: true
-        ic120_tf/track_frame_link:
-          Value: true
-        ic120_tf/upper_frame_link:
-          Value: true
-        ic120_tf/vessel_middle_link:
           Value: true
         ic120_tf/vessel_pin_link:
           Value: true
@@ -368,46 +292,24 @@ Visualization Manager:
           map:
             ic120_tf/odom:
               ic120_tf/base_link:
-                ic120_tf/left_front1_wheel_link:
-                  {}
-                ic120_tf/left_front2_wheel_link:
-                  {}
+                ic120_tf/body_link:
+                  ic120_tf/cylinder_head_link:
+                    ic120_tf/cylinder_rod_link:
+                      {}
+                  ic120_tf/vessel_pin_link:
+                    {}
                 ic120_tf/left_front3_wheel_link:
                   {}
                 ic120_tf/left_middle_wheel_link:
                   {}
-                ic120_tf/left_rear1_wheel_link:
-                  {}
-                ic120_tf/left_rear2_wheel_link:
-                  {}
                 ic120_tf/left_rear3_wheel_link:
-                  {}
-                ic120_tf/right_front1_wheel_link:
-                  {}
-                ic120_tf/right_front2_wheel_link:
                   {}
                 ic120_tf/right_front3_wheel_link:
                   {}
                 ic120_tf/right_middle_wheel_link:
                   {}
-                ic120_tf/right_rear1_wheel_link:
-                  {}
-                ic120_tf/right_rear2_wheel_link:
-                  {}
                 ic120_tf/right_rear3_wheel_link:
                   {}
-                ic120_tf/track_frame_link:
-                  ic120_tf/cabin_link:
-                    {}
-                  ic120_tf/cabin_window_link:
-                    {}
-                  ic120_tf/track_belt_link:
-                    {}
-                  ic120_tf/upper_frame_link:
-                    {}
-                ic120_tf/vessel_pin_link:
-                  ic120_tf/vessel_middle_link:
-                    {}
       Update Interval: 0
       Value: true
   Enabled: true
