@@ -3,6 +3,6 @@
     <arg name="gui" default="true" />
     <!-- <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" /> -->
     <param name="use_gui" value="$(arg gui)"/>
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_model)/rviz/urdf.rviz" required="true" />
+    <node name="rviz_ic120" pkg="rviz" type="rviz" args="-d $(find ic120_model)/rviz/urdf.rviz" required="true" />
   </group>
 </launch>
