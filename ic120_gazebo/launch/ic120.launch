@@ -3,7 +3,7 @@
   <arg name="init_pose"/>
 
   <group ns="$(arg robot_name)">
-    <arg name="model" default="$(find ic120_model)/urdf/ic120_gazebo.xacro"/>
+    <arg name="model" default="$(find ic120_description)/urdf/ic120_gazebo.xacro"/>
     <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
     <param name="tf_prefix" value="$(arg robot_name)_tf" />
 

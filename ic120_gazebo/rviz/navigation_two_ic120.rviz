@@ -164,7 +164,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        vessel_middle_link:
+        vessel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -351,7 +351,7 @@ Visualization Manager:
           Value: true
         ic120_2_tf/upper_frame_link:
           Value: true
-        ic120_2_tf/vessel_middle_link:
+        ic120_2_tf/vessel_link:
           Value: true
         ic120_2_tf/vessel_pin_link:
           Value: true
@@ -397,11 +397,13 @@ Visualization Manager:
           Value: true
         ic120_tf/upper_frame_link:
           Value: true
-        ic120_tf/vessel_middle_link:
+        ic120_tf/vessel_link:
           Value: true
         ic120_tf/vessel_pin_link:
           Value: true
         map:
+          Value: true
+        world:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -409,90 +411,93 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          ic120_2_tf/odom:
-            ic120_2_tf/base_link:
-              ic120_2_tf/left_front1_wheel_link:
-                {}
-              ic120_2_tf/left_front2_wheel_link:
-                {}
-              ic120_2_tf/left_front3_wheel_link:
-                {}
-              ic120_2_tf/left_middle_wheel_link:
-                {}
-              ic120_2_tf/left_rear1_wheel_link:
-                {}
-              ic120_2_tf/left_rear2_wheel_link:
-                {}
-              ic120_2_tf/left_rear3_wheel_link:
-                {}
-              ic120_2_tf/right_front1_wheel_link:
-                {}
-              ic120_2_tf/right_front2_wheel_link:
-                {}
-              ic120_2_tf/right_front3_wheel_link:
-                {}
-              ic120_2_tf/right_middle_wheel_link:
-                {}
-              ic120_2_tf/right_rear1_wheel_link:
-                {}
-              ic120_2_tf/right_rear2_wheel_link:
-                {}
-              ic120_2_tf/right_rear3_wheel_link:
-                {}
-              ic120_2_tf/track_frame_link:
-                ic120_2_tf/cabin_link:
+        world:
+          map:
+            ic120_2_tf/odom:
+              ic120_2_tf/base_link:
+                ic120_2_tf/left_front1_wheel_link:
                   {}
-                ic120_2_tf/cabin_window_link:
+                ic120_2_tf/left_front2_wheel_link:
                   {}
-                ic120_2_tf/track_belt_link:
+                ic120_2_tf/left_front3_wheel_link:
                   {}
-                ic120_2_tf/upper_frame_link:
+                ic120_2_tf/left_middle_wheel_link:
                   {}
-              ic120_2_tf/vessel_pin_link:
-                ic120_2_tf/vessel_middle_link:
+                ic120_2_tf/left_rear1_wheel_link:
                   {}
-          ic120_tf/odom:
-            ic120_tf/base_link:
-              ic120_tf/left_front1_wheel_link:
-                {}
-              ic120_tf/left_front2_wheel_link:
-                {}
-              ic120_tf/left_front3_wheel_link:
-                {}
-              ic120_tf/left_middle_wheel_link:
-                {}
-              ic120_tf/left_rear1_wheel_link:
-                {}
-              ic120_tf/left_rear2_wheel_link:
-                {}
-              ic120_tf/left_rear3_wheel_link:
-                {}
-              ic120_tf/right_front1_wheel_link:
-                {}
-              ic120_tf/right_front2_wheel_link:
-                {}
-              ic120_tf/right_front3_wheel_link:
-                {}
-              ic120_tf/right_middle_wheel_link:
-                {}
-              ic120_tf/right_rear1_wheel_link:
-                {}
-              ic120_tf/right_rear2_wheel_link:
-                {}
-              ic120_tf/right_rear3_wheel_link:
-                {}
-              ic120_tf/track_frame_link:
-                ic120_tf/cabin_link:
+                ic120_2_tf/left_rear2_wheel_link:
                   {}
-                ic120_tf/cabin_window_link:
+                ic120_2_tf/left_rear3_wheel_link:
                   {}
-                ic120_tf/track_belt_link:
+                ic120_2_tf/right_front1_wheel_link:
                   {}
-                ic120_tf/upper_frame_link:
+                ic120_2_tf/right_front2_wheel_link:
                   {}
-              ic120_tf/vessel_pin_link:
-                ic120_tf/vessel_middle_link:
+                ic120_2_tf/right_front3_wheel_link:
+                  {}
+                ic120_2_tf/right_middle_wheel_link:
+                  {}
+                ic120_2_tf/right_rear1_wheel_link:
+                  {}
+                ic120_2_tf/right_rear2_wheel_link:
+                  {}
+                ic120_2_tf/right_rear3_wheel_link:
+                  {}
+                ic120_2_tf/track_frame_link:
+                  ic120_2_tf/cabin_link:
+                    {}
+                  ic120_2_tf/cabin_window_link:
+                    {}
+                  ic120_2_tf/track_belt_link:
+                    {}
+                  ic120_2_tf/upper_frame_link:
+                    {}
+                  ic120_2_tf/vessel_link:
+                    {}
+                ic120_2_tf/vessel_pin_link:
+                  {}
+            ic120_tf/odom:
+              ic120_tf/base_link:
+                ic120_tf/left_front1_wheel_link:
+                  {}
+                ic120_tf/left_front2_wheel_link:
+                  {}
+                ic120_tf/left_front3_wheel_link:
+                  {}
+                ic120_tf/left_middle_wheel_link:
+                  {}
+                ic120_tf/left_rear1_wheel_link:
+                  {}
+                ic120_tf/left_rear2_wheel_link:
+                  {}
+                ic120_tf/left_rear3_wheel_link:
+                  {}
+                ic120_tf/right_front1_wheel_link:
+                  {}
+                ic120_tf/right_front2_wheel_link:
+                  {}
+                ic120_tf/right_front3_wheel_link:
+                  {}
+                ic120_tf/right_middle_wheel_link:
+                  {}
+                ic120_tf/right_rear1_wheel_link:
+                  {}
+                ic120_tf/right_rear2_wheel_link:
+                  {}
+                ic120_tf/right_rear3_wheel_link:
+                  {}
+                ic120_tf/track_frame_link:
+                  ic120_tf/cabin_link:
+                    {}
+                  ic120_tf/cabin_window_link:
+                    {}
+                  ic120_tf/track_belt_link:
+                    {}
+                  ic120_tf/upper_frame_link:
+                    {}
+                  ic120_tf/vessel_link:
+                    {}
+                ic120_tf/vessel_pin_link:
                   {}
       Update Interval: 0
       Value: true
@@ -605,7 +610,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        vessel_middle_link:
+        vessel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -620,6 +625,52 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /ic120_2/move_base/DWAPlannerROS/local_plan
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 85; 255; 255
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 1
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: Axes
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 1
+      Topic: /ic120_2/move_base/DWAPlannerROS/global_plan
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48

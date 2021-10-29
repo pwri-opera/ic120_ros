@@ -6,7 +6,7 @@
   <node pkg="tf" type="static_transform_publisher" name="base_link_offset_tf" args="0.66 0 0 0 0 0 $(arg robot_name)_tf/base_link $(arg robot_name)_tf/base_link_rot 30"/>
 
   <group ns="$(arg robot_name)">
-    <arg name="model" default="$(find ic120_model)/urdf/ic120.xacro"/>
+    <arg name="model" default="$(find ic120_description)/urdf/ic120.xacro"/>
     <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
     <param name="tf_prefix" value="$(arg robot_name)_tf"/>
 
@@ -20,13 +20,13 @@
       </node>
     </group>
 
-    <include file="$(find ic120_nav)/launch/ekf_localization.launch">
+    <include file="$(find ic120_navigation)/launch/ekf_localization.launch">
       <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
-    <include file="$(find ic120_nav)/launch/ic120_nav.launch">
+    <include file="$(find ic120_navigation)/launch/ic120_navigation.launch">
       <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 

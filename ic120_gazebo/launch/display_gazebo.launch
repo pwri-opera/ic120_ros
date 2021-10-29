@@ -2,7 +2,7 @@
   <group ns="ic120">
     <param name="tf_prefix" value="ic120" />
 
-    <arg name="model" default="$(find ic120_model)/urdf/ic120_gazebo.xacro"/>
+    <arg name="model" default="$(find ic120_description)/urdf/ic120_gazebo.xacro"/>
     <arg name="gui" default="false" />
     <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
 

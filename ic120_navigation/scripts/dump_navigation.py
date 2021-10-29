@@ -9,7 +9,7 @@ from nav_msgs.msg import Odometry
 import math
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Quaternion, Vector3, Pose
-from ic120_nav.srv import dump_nav,dump_navRequest,dump_navResponse
+from ic120_navigation.srv import dump_nav,dump_navRequest,dump_navResponse
 
 world2map_trans=[0,0,0]
 world2map_rot=[0,0,0,0]

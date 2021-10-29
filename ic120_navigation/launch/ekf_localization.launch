@@ -1,10 +1,10 @@
 <launch>
   <arg name="robot_name" default="ic120"/>
 
-  <node pkg="ic120_nav" type="poseStamped2Odometry.py" name="poseStamped2Odometry"/>
+  <node pkg="ic120_navigation" type="poseStamped2Odometry.py" name="poseStamped2Odometry"/>
 
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_global" clear_params="true" output="screen">
-    <rosparam command="load" file="$(find ic120_nav)/config/ic120_ekf.yaml" />
+    <rosparam command="load" file="$(find ic120_navigation)/config/ic120_ekf.yaml" />
     <param name="tf_prefix" value=""/>
     <param name="odom_frame" value="$(arg robot_name)_tf/odom"/>
     <param name="base_link_frame" value="$(arg robot_name)_tf/base_link"/>

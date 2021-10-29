@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ic120_nav</name>
+  <name>ic120_navigation</name>
   <version>0.0.0</version>
-  <description>The ic120_nav package</description>
+  <description>The ic120_navigation package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

@@ -3,13 +3,13 @@
     <param name="use_gui" value="true"/>
     <arg name="config" default="robot" />
 
-    <arg name="model" default="$(find ic120_model)/urdf/ic120.xacro"/>
+    <arg name="model" default="$(find ic120_description)/urdf/ic120.xacro"/>
 
     <param name="/ic120/robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
 
     <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
 
-    <node name="rviz_ic120" pkg="rviz" type="rviz" args="-d $(find ic120_nav)/rviz/navigation.rviz">
+    <node name="rviz_ic120" pkg="rviz" type="rviz" args="-d $(find ic120_navigation)/rviz/navigation.rviz">
       <param name="tf_prefix" value="ic120" />
     </node>
   </group>

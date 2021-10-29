@@ -10,7 +10,7 @@ import math
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from geometry_msgs.msg import Quaternion
 from geometry_msgs.msg import Vector3
-from ic120_nav.srv import dump_nav,dump_navResponse,dump_navRequest
+from ic120_navigation.srv import dump_nav,dump_navResponse,dump_navRequest
 from geometry_msgs.msg import PoseArray,Pose
 
 
