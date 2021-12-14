@@ -22,5 +22,5 @@
     <arg name="robot_name" value="$(arg robot_name)"/>
   </include>
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_gazebo)/rviz/navigation_one_ic120.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ic120_gazebo)/rviz/ic120_empty_world.rviz"/>
 </launch>
