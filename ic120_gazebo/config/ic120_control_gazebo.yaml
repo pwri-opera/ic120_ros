@@ -4,8 +4,8 @@ joint_state_controller:
   publish_rate: 50
 
 # Position Controllers ---------------------------------------
-vessel_pin_joint_position_controller:
+container_pin_joint_position_controller:
   type: effort_controllers/JointPositionController
 #    type: position_controllers/JointPositionController
-  joint: vessel_pin_joint
+  joint: container_pin_joint
   pid: {p: 100.0, i: 0.01, d: 10.0}
