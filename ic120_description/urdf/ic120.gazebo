@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot>
+
+	<!-- ros_control plugin -->
+	<!-- <gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/ic120</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+	</gazebo> -->
+
+	<gazebo reference="base_link">
+		<material>ic120texture</material>
+	</gazebo>
+
+	<gazebo reference="container_pin_link">
+		<material>ic120texture</material>
+	</gazebo>
+
+	<gazebo reference="cylinder_head_link">
+		<material>ic120texture</material>
+	</gazebo>
+
+	<gazebo reference="cylinder_rod_link">
+		<material>ic120texture</material>
+	</gazebo>
+
+</robot>
