@@ -5,12 +5,13 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1
         - /RobotModel1/Links1
         - /TF1
-        - /Axes1
+        - /TF1/Tree1
+        - /TF1/Tree1/base_link1
+        - /TF1/Tree1/base_link1/body_link1
       Splitter Ratio: 0.5
-    Tree Height: 242
+    Tree Height: 250
   - Class: rviz/Views
     Expanded:
       - /Current View1
@@ -71,6 +72,14 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_sprocket_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_sprocket_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         vessel_pin_link:
           Alpha: 1
           Show Axes: false
@@ -83,25 +92,42 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: true
-      Marker Scale: 1
+        base_link:
+          Value: true
+        body_link:
+          Value: true
+        cylinder_head_link:
+          Value: true
+        cylinder_rod_link:
+          Value: true
+        left_sprocket_link:
+          Value: true
+        right_sprocket_link:
+          Value: true
+        vessel_pin_link:
+          Value: true
+      Marker Scale: 3
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        base_link:
+          body_link:
+            cylinder_head_link:
+              cylinder_rod_link:
+                {}
+            left_sprocket_link:
+              {}
+            right_sprocket_link:
+              {}
+            vessel_pin_link:
+              {}
       Update Interval: 0
-      Value: false
-    - Class: rviz/Axes
-      Enabled: true
-      Length: 4
-      Name: Axes
-      Radius: 0.10000000149011612
-      Reference Frame: link1
       Value: true
   Enabled: true
   Global Options:
@@ -116,35 +142,35 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 11.008857727050781
+      Distance: 8.00383186340332
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.37021851539611816
-        Y: -0.2999955713748932
-        Z: 2.0886847972869873
+        X: -2.1608681678771973
+        Y: -0.6096799373626709
+        Z: 0.5925655961036682
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3053986132144928
+      Pitch: 0.025398820638656616
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.0903973579406738
+      Yaw: 1.558586597442627
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 713
+  Height: 725
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000001560000026ffc0200000002fb000000100044006900730070006c006100790073010000003d00000175000000c900fffffffb0000000a0056006900650077007301000001b8000000f4000000a400ffffff000003b50000026f00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000001560000027bfc0200000002fb000000100044006900730070006c006100790073010000003d0000017d000000c900fffffffb0000000a0056006900650077007301000001c0000000f8000000a400ffffff000003b50000027b00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1297
-  X: 67
-  Y: 27
+  X: 417
+  Y: 236
