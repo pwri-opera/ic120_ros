@@ -32,18 +32,18 @@
 	</link>
 
 	<!-- bucket axis -->
-	<joint name="container_pin_joint" type="revolute">
+	<joint name="vessel_pin_joint" type="revolute">
 		<origin xyz="-3.0153 0 0.94605"/>
 		<axis xyz="0 1 0"/>
 		<parent link="body_link"/>
-		<child link="container_pin_link"/>
+		<child link="vessel_pin_link"/>
 		<limit lower="${-radians(65)}" upper="0" effort="30" velocity="6.159937255"/>
 	</joint>
 
-	<link name="container_pin_link">
+	<link name="vessel_pin_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://ic120_description/meshes/ic120-container.dae"/>
+				<mesh filename="package://ic120_description/meshes/ic120-vessel.dae"/>
 			</geometry>
 		</visual>
 		<inertial>
@@ -61,14 +61,14 @@
 		<axis xyz="0 1 0"/>
 		<parent link="body_link"/>
 		<child link="cylinder_head_link"/>
-		<mimic joint="container_pin_joint" multiplier="${radians(5.72)/radians(-65)}"/>
+		<mimic joint="vessel_pin_joint" multiplier="${radians(5.72)/radians(-65)}"/>
 	</joint>
 
 	<!-- cylinder outer angle -->
 	<gazebo>
 		<plugin name="cylinder_head_joint_mimic_joint_plugin"
 				filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
-			<joint>container_pin_joint</joint>
+			<joint>vessel_pin_joint</joint>
 			<mimicJoint>cylinder_head_joint</mimicJoint>
 			<multiplier>${radians(5.72)/radians(-65)}</multiplier>
 			<offset>0</offset>
@@ -98,14 +98,14 @@
 		<child link="cylinder_rod_link"/>
 		<axis xyz="-1.4989 0 0.51788"/>
 		<limit lower="-1" upper="1" effort="30" velocity="6.159937255"/>
-		<mimic joint="container_pin_joint" multiplier="${0.8/radians(-65)}"/>
+		<mimic joint="vessel_pin_joint" multiplier="${0.8/radians(-65)}"/>
 	</joint>
 
 	<!-- cylinder inner position -->
 	<gazebo>
 		<plugin name="cylinder_joint_mimic_joint_plugin"
 				filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
-			<joint>container_pin_joint</joint>
+			<joint>vessel_pin_joint</joint>
 			<mimicJoint>cylinder_rod_prismatic_joint</mimicJoint>
 			<multiplier>${0.8/radians(-65)}</multiplier> 
 			<offset>0</offset>
@@ -130,10 +130,10 @@
 
 	<transmission name="tran1">
 		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="container_pin_joint">
+		<joint name="vessel_pin_joint">
 			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
-		<actuator name="container_pin_joint_motor">
+		<actuator name="vessel_pin_joint_motor">
 			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
