@@ -75,12 +75,12 @@
 
   <!--Track(Multi Wheel) Definition-->
   <xacro:wheel_macro prefix="left_middle_wheel"  parent="base_link" xyz="0 2 0.5"/>
-  <xacro:fake_wheel_macro prefix="left_front3_wheel"  parent="base_link" xyz="1.5 1 0.5"/>
-  <xacro:fake_wheel_macro prefix="left_rear3_wheel"  parent="base_link" xyz="-1.5 1 0.5"/>
+  <xacro:fake_wheel_macro prefix="left_front_wheel"  parent="base_link" xyz="1.5 1 0.5"/>
+  <xacro:fake_wheel_macro prefix="left_rear_wheel"  parent="base_link" xyz="-1.5 1 0.5"/>
 
   <xacro:wheel_macro prefix="right_middle_wheel"  parent="base_link" xyz="0 -2 0.5"/>
-  <xacro:fake_wheel_macro prefix="right_front3_wheel"  parent="base_link" xyz="1.5 -1 0.5"/>
-  <xacro:fake_wheel_macro prefix="right_rear3_wheel"  parent="base_link" xyz="-1.5 -1 0.5"/>
+  <xacro:fake_wheel_macro prefix="right_front_wheel"  parent="base_link" xyz="1.5 -1 0.5"/>
+  <xacro:fake_wheel_macro prefix="right_rear_wheel"  parent="base_link" xyz="-1.5 -1 0.5"/>
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
