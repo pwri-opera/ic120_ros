@@ -1,4 +1,10 @@
 # ic120_ros
+OPERA対応クローラダンプIC120の土木研究所公開ROSパッケージ群
+
+## 概説
+- 国立研究開発法人土木研究所が公開するOPERA（Open Platform for Eathwork with Robotics Autonomy）対応のクローラダンプであるIC120用のROSパッケージ群である
+- 本パッケージに含まれる各launchファイルを起動することで、実機やシミュレータを動作させるのに必要なROSノード群が立ち上がる
+- 動作確認済のROS Version : ROS Melodic Morenia + Ubuntu 18.04 LTS
 
 ## ビルド方法
 - ワークスペースの作成（既にwsを作成済の場合は不要．以下、新規作成するワークスペースの名称を"catkin_ws"と仮定して表記）
@@ -23,5 +29,45 @@
   $ source ../devel/setup.bash
   ```
 
+## 含有するサブパッケージ
+### ic120_bringup:
+- ic120の実機を動作させる際に必要なノード群を一括起動するためのlaunch用のサブパッケージ
+
+### ic120_description:
+- ic120用のロボットモデルファイル(urdf, xacro含む)群
+
+### ic120_gazebo:
+- ic120をgazeboシミュレータ上で動作させるのに必要なノード群を一括起動するためのlaunch用のサブパッケージ
+
+### ic120_navigation:
+- (Under Construction)
+
+### ic120_unity:
+- OPERAのUnityシミュレータと連携するために必要なノード群を一括起動するためのlaunch用のサブパッケージ
+
+## 各ROSノード群の起動方法
+- 実機動作に必要なROSノード群の起動方法
+  ```bash
+  $ roslaunch ic120_bringup ic120_vehicle.launch
+  ```
+- 実機遠隔操作に必要なROSノード群の起動方法
+  ```bash
+  $ roslaunch ic120_bringup ic120_remote.launch
+  ```
+- Unityシミュレータとの連携に必要なROSノード群の起動方法
+  ```bash
+  $ roslaunch ic120_unity ic120_standby.launch
+  ```
+ 
 ### ハードウェアシステム
 ![ic120_hardware_system](https://user-images.githubusercontent.com/24404939/159679362-c82d3720-089a-47f1-9251-a02f9e8a7fd4.jpg)
+
+## ソフトウェアシステム
+### roslaunch ic120_unity ic120_standy.launch実行時のノード/トピックパイプライン（rqt_graph）
+(Under Construction)
+
+### roslaunch ic120_unity ic120_remote.launch実行時のノード/トピックパイプライン（rqt_graph）
+(Under Construction)
+
+### roslaunch ic120_bringup ic120_vehicle.launch実行時のノード/トピックパイプライン（rqt_graph）
+(Under Construction)
