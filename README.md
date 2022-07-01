@@ -21,6 +21,7 @@ OPERA対応クローラダンプIC120の土木研究所公開ROSパッケージ�
   ```bash
   $ cd ~/catkin_ws/src
   $ git clone https://github.com/pwri-opera/ic120_ros.git
+  $ sudo apt update
   $ sudo apt install python-vcstool python-rosdep python-catkin-tools
   $ git clone https://github.com/strv/vcstool-utils.git
   $ rosdep install --from-paths ~/catkin_ws/src --ignore-src -r -y
