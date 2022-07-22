@@ -10,7 +10,7 @@
     <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
 
     <node name="rviz_ic120" pkg="rviz" type="rviz" args="-d $(find ic120_navigation)/rviz/navigation.rviz">
-      <param name="tf_prefix" value="ic120" />
+      <param name="tf_prefix" value="ic120_tf" />
     </node>
   </group>
 </launch>

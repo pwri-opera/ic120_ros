@@ -2,7 +2,7 @@
   <arg name="robot_name" default="ic120"/>
 
   <!-- Gazebo用にgroupを追加 実機で動かせるか確認必要 -->
-  <group ns="$(arg robot_name)">
+  <!--group ns="$(arg robot_name)"-->
   <!--  -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
       <rosparam file="$(find ic120_navigation)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
@@ -18,5 +18,5 @@
       <param name="local_costmap/global_frame" value="$(arg robot_name)_tf/odom"/>
       <param name="local_costmap/robot_base_frame" value="$(arg robot_name)_tf/base_link"/>
     </node>
-  </group>
+  <!--/group-->
  </launch>
