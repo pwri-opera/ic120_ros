@@ -41,7 +41,8 @@ OPERA対応クローラダンプIC120の土木研究所公開ROSパッケージ�
 - ic120をgazeboシミュレータ上で動作させるのに必要なノード群を一括起動するためのlaunch用のサブパッケージ
 
 ### ic120_navigation:
-- (Under Construction)
+- ic120の自動走行のためのライブラリ
+- [Navigation Stack](http://wiki.ros.org/navigation) に準拠
 
 ### ic120_unity:
 - OPERAのUnityシミュレータと連携するために必要なノード群を一括起動するためのlaunch用のサブパッケージ
@@ -67,8 +68,8 @@ OPERA対応クローラダンプIC120の土木研究所公開ROSパッケージ�
 ### roslaunch ic120_unity ic120_standy.launch実行時のノード/トピックパイプライン（rqt_graph）
 ![unity_launch](https://user-images.githubusercontent.com/24404939/175253675-c9fe28b6-398b-46c4-963f-aad9289c3c9b.png)
 
-### roslaunch ic120_unity ic120_remote.launch実行時のノード/トピックパイプライン（rqt_graph）
-(Under Construction)
-
 ### roslaunch ic120_bringup ic120_vehicle.launch実行時のノード/トピックパイプライン（rqt_graph）
-(Under Construction)
+![Screenshot from 2022-07-22 17-20-43](https://user-images.githubusercontent.com/24404939/180416808-acab38d4-04b0-48aa-a50f-15a0c7be0808.png)
+
+### roslaunch ic120_launch ic120_remote.launch実行時のノード/トピックパイプライン（rqt_graph）
+![Screenshot from 2022-07-22 17-18-45](https://user-images.githubusercontent.com/24404939/180416944-6568d3dc-23ad-4508-9e3a-55f378f093f1.png)
